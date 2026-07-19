@@ -166,7 +166,10 @@ def predictprice():
     price = round(prediction[0],2)
 
 
-    return f"Predicted House Price: ₹ {price}"
+    return render_template(
+    "prediction.html",
+    prediction=round(prediction[0],2)
+    )
     
 if __name__ == "__main__":
     app.run(debug=True)

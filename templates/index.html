@@ -1,142 +1,602 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <title>House Price Prediction</title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>EstateIQ | AI Real Estate Valuation Engine</title>
+
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
 </head>
 
 
 <body>
 
-<div class="container">
 
-<h1>House Price Prediction</h1>
+<div class="background-glow"></div>
+
+
+<main class="app-container">
+
+
+    <!-- HERO SECTION -->
+
+    <section class="hero-section">
+
+
+        <div class="brand">
+
+            <div class="logo">
+                🏠
+            </div>
+
+
+            <span>
+                EstateIQ
+            </span>
+
+        </div>
+
+
+
+        <h1>
+            AI-Powered Real Estate
+            <span>Valuation Engine</span>
+        </h1>
+
+
+        <p>
+            Predict property prices using Machine Learning
+            with our Linear Regression intelligence model.
+        </p>
+
+
+
+        <div class="tech-stack">
+
+
+            <span>
+                Python
+            </span>
+
+
+            <span>
+                Scikit-Learn
+            </span>
+
+
+            <span>
+                Linear Regression
+            </span>
+
+
+        </div>
+
+
+    </section>
+
+
+
+
+
+    <!-- PREDICTION CARD -->
+
+
+    <section class="prediction-card">
+
+
+        <div class="card-header">
+
+
+            <h2>
+                Property Intelligence Input
+            </h2>
+
+
+            <p>
+                Provide property details to generate AI valuation
+            </p>
+
+
+        </div>
+
+
+
 
 
 <form action="/predictprice" method="POST">
 
 
-<label for="area">Area (sq.ft)</label>
+
+<div class="form-grid">
+
+
+
+<!-- Area -->
+
+<div class="input-group">
+
+<label for="area">
+📐 Area (sq.ft)
+</label>
+
+
 <input
-    type="number"
-    id="area"
-    name="area"
-    placeholder="Example: 500"
-    min="1"
-    step="0.01"
-    required
+type="number"
+id="area"
+name="area"
+placeholder="Example: 2500"
+min="1"
+step="0.01"
+required
 >
 
-<label for="bedrooms">Bedrooms</label>
-<input
-    type="number"
-    id="bedrooms"
-    name="bedrooms"
-    placeholder="Example: 3"
-    min="1"
-    step="1"
-    required
->
+</div>
 
-<label for="bathrooms">Bathrooms</label>
-<input
-    type="number"
-    id="bathrooms"
-    name="bathrooms"
-    placeholder="Example: 2"
-    min="1"
-    step="1"
-    required
->
 
-<label for="stories">Stories</label>
-<input
-    type="number"
-    id="stories"
-    name="stories"
-    placeholder="Example: 2"
-    min="1"
-    max="4"
-    step="1"
-    required
->
 
-<label for="parking">Parking Spaces</label>
+
+
+<!-- Bedrooms -->
+
+<div class="input-group">
+
+
+<label for="bedrooms">
+🛏 Bedrooms
+</label>
+
+
 <input
-    type="number"
-    id="parking"
-    name="parking"
-    placeholder="Example: 2"
-    min="0"
-    max="3"
-    step="1"
-    required
+type="number"
+id="bedrooms"
+name="bedrooms"
+placeholder="Example: 3"
+min="1"
+step="1"
+required
 >
 
 
-<label>Main Road</label>
+</div>
+
+
+
+
+
+<!-- Bathrooms -->
+
+<div class="input-group">
+
+
+<label for="bathrooms">
+🚿 Bathrooms
+</label>
+
+
+<input
+type="number"
+id="bathrooms"
+name="bathrooms"
+placeholder="Example: 2"
+min="1"
+step="1"
+required
+>
+
+
+</div>
+
+
+
+
+
+
+<!-- Stories -->
+
+<div class="input-group">
+
+
+<label for="stories">
+🏢 Stories
+</label>
+
+
+<input
+type="number"
+id="stories"
+name="stories"
+placeholder="Example: 2"
+min="1"
+max="4"
+step="1"
+required
+>
+
+
+</div>
+
+
+
+
+
+
+<!-- Parking -->
+
+<div class="input-group">
+
+
+<label for="parking">
+🚗 Parking Spaces
+</label>
+
+
+<input
+type="number"
+id="parking"
+name="parking"
+placeholder="Example: 2"
+min="0"
+max="3"
+step="1"
+required
+>
+
+
+</div>
+
+
+
+
+
+<!-- Main Road -->
+
+<div class="input-group">
+
+
+<label>
+🛣 Main Road
+</label>
+
+
 <select name="mainroad">
-<option value="1">Yes</option>
-<option value="0">No</option>
+
+<option value="1">
+Yes
+</option>
+
+
+<option value="0">
+No
+</option>
+
+
 </select>
 
 
-<label>Guest Room</label>
+</div>
+
+
+
+
+
+<!-- Guest Room -->
+
+
+<div class="input-group">
+
+
+<label>
+🛋 Guest Room
+</label>
+
+
 <select name="guestroom">
-<option value="1">Yes</option>
-<option value="0">No</option>
+
+
+<option value="1">
+Yes
+</option>
+
+
+<option value="0">
+No
+</option>
+
+
 </select>
 
 
-<label>Basement</label>
+</div>
+
+
+
+
+
+
+<!-- Basement -->
+
+
+<div class="input-group">
+
+
+<label>
+🏠 Basement
+</label>
+
+
 <select name="basement">
-<option value="1">Yes</option>
-<option value="0">No</option>
+
+
+<option value="1">
+Yes
+</option>
+
+
+<option value="0">
+No
+</option>
+
+
 </select>
 
 
-<label>Hot Water Heating</label>
+</div>
+
+
+
+
+
+
+<!-- Hot Water -->
+
+
+<div class="input-group">
+
+
+<label>
+🔥 Hot Water Heating
+</label>
+
+
 <select name="hotwaterheating">
-<option value="1">Yes</option>
-<option value="0">No</option>
+
+
+<option value="1">
+Yes
+</option>
+
+
+<option value="0">
+No
+</option>
+
+
 </select>
 
 
-<label>Air Conditioning</label>
+</div>
+
+
+
+
+
+
+
+<!-- AC -->
+
+
+<div class="input-group">
+
+
+<label>
+❄ Air Conditioning
+</label>
+
+
 <select name="airconditioning">
-<option value="1">Yes</option>
-<option value="0">No</option>
+
+
+<option value="1">
+Yes
+</option>
+
+
+<option value="0">
+No
+</option>
+
+
 </select>
 
 
-<input type="text" name="parking" placeholder="Parking" required>
+</div>
 
 
-<label>Preferred Area</label>
+
+
+
+
+<!-- Preferred Area -->
+
+
+<div class="input-group">
+
+
+<label>
+⭐ Preferred Area
+</label>
+
+
 <select name="prefarea">
-<option value="1">Yes</option>
-<option value="0">No</option>
+
+
+<option value="1">
+Yes
+</option>
+
+
+<option value="0">
+No
+</option>
+
+
 </select>
 
 
-<label for="furnishingstatus">Furnishing Status</label>
-<select id="furnishingstatus" name="furnishingstatus" required>
-    <option value="" selected disabled>Select Furnishing Status</option>
-    <option value="furnished">Furnished</option>
-    <option value="semi-furnished">Semi-Furnished</option>
-    <option value="unfurnished">Unfurnished</option>
+</div>
+
+
+
+
+
+
+<!-- Furnishing -->
+
+
+<div class="input-group">
+
+
+<label for="furnishingstatus">
+🪑 Furnishing Status
+</label>
+
+
+<select 
+id="furnishingstatus"
+name="furnishingstatus"
+required
+>
+
+
+<option value="" selected disabled>
+Select Status
+</option>
+
+
+<option value="furnished">
+Furnished
+</option>
+
+
+<option value="semi-furnished">
+Semi-Furnished
+</option>
+
+
+<option value="unfurnished">
+Unfurnished
+</option>
+
+
 </select>
+
+
+</div>
+
+
+
+</div>
+
+
+
 
 
 <button type="submit">
-Predict Price
+
+<span>
+Generate AI Valuation
+</span>
+
 </button>
+
+
 
 
 </form>
 
+
+
+</section>
+
+
+
+
+
+
+
+<!-- MODEL INFO -->
+
+
+<section class="model-section">
+
+
+<div class="info-card">
+
+<h3>
+🤖 Algorithm
+</h3>
+
+<p>
+Linear Regression
+</p>
+
 </div>
+
+
+
+<div class="info-card">
+
+<h3>
+📊 Model Score
+</h3>
+
+<p>
+R² Score: 65%
+</p>
+
+</div>
+
+
+
+
+<div class="info-card">
+
+<h3>
+⚙ Framework
+</h3>
+
+<p>
+Scikit-Learn
+</p>
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+<footer>
+
+Built while learning Machine Learning 🚀
+
+</footer>
+
+
+
+
+</main>
+
 
 
 </body>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>EstateIQ | Valuation Result</title>
+
+
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+
+</head>
+
+
+
+<body>
+
+
+<div class="background-glow"></div>
+
+
+<main class="app-container">
+
+
+
+<section class="prediction-card result-card">
+
+
+<div class="success-icon">
+
+✅
+
+</div>
+
+
+
+<h1>
+
+AI Valuation Generated
+
+</h1>
+
+
+<p class="result-description">
+
+Based on your property features,
+EstateIQ estimated the following market value.
+
+</p>
+
+
+
+
+<div class="price-box">
+
+
+<span>
+
+Estimated Property Value
+
+</span>
+
+
+
+<h2>
+
+₹ {{prediction}}
+
+</h2>
+
+
+</div>
+
+
+
+
+
+
+<div class="model-section">
+
+
+<div class="info-card">
+
+<h3>
+🤖 Model
+</h3>
+
+<p>
+Linear Regression
+</p>
+
+</div>
+
+
+
+<div class="info-card">
+
+<h3>
+📊 Performance
+</h3>
+
+<p>
+R² Score: 65%
+</p>
+
+</div>
+
+
+
+<div class="info-card">
+
+<h3>
+⚙ Framework
+</h3>
+
+<p>
+Scikit-Learn
+</p>
+
+</div>
+
+
+</div>
+
+
+
+
+
+<a href="/" class="back-button">
+
+Predict Another Property
+
+</a>
+
+
+
+</section>
+
+
+
+
+<footer>
+
+Built with Machine Learning 🚀
+
+</footer>
+
+
+
+</main>
+
+
+
+</body>
+
+
+</html>
