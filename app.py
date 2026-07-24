@@ -86,7 +86,7 @@ def predictprice():
     stories = request.form["stories"]
 
     if stories == "":
-        errors.append("Stories is required.")
+        errors.append("Stories are required.")
     else:
         try:
             stories = int(stories)
