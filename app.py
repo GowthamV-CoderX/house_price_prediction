@@ -48,8 +48,8 @@ def predictprice():
 
             if bedrooms <= 0:
                 errors.append("Bedrooms must be greater than 0.")
-            if bedrooms >= 20:
-                errors.append("Bedrooms must be in range of 0 - 20")
+            if bedrooms >= 10:
+                errors.append("Bedrooms must be in range of 0 - 10")
             if type(bedrooms) == float:
                 errors.append("Bedrooms cannot be decimal must be in integer value")
 
